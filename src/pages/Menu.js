@@ -6,10 +6,22 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import '../style.css';
+import { useNavigate } from "react-router-dom";
 
 
 
 function Menu() {
+
+
+  const direct = useNavigate();
+
+  /* Log Out */
+  const logOut = () => {
+    localStorage.clear();
+    alert("logout")
+    direct("/")
+  };
+
   return (
     <>
         <Navbar key="lg" expand="lg" className="shadowBox shadow-sm" sticky="top" style={{backgroundColor:"white"}}>
@@ -35,7 +47,7 @@ function Menu() {
                 <Nav className="justify-content-end flex-grow-1 pe-2 navkonten" style={{color:'#45577B', backgroundColor:"white"}}>
                   
                   <div className="navright">
-                    <Nav.Link href="/#contactme"><b>Log Out</b></Nav.Link>
+                    <Nav.Link href="/" onClick={logOut}><b>Log Out</b></Nav.Link>
                   </div>
               
                 </Nav>
