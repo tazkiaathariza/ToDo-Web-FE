@@ -113,7 +113,6 @@ background-color: #ffffff;
 form {
     background-color: #ffffff;
     align-items: center;
-
 }
 
 .judulTodo {
@@ -143,4 +142,19 @@ background-color: #ffffff;
     padding-top: 10%;
     padding-bottom: 10%; 
     box-shadow: 0px 0px 4px rgba(74, 74, 74, 0.229);
+}
+
+.myTask {
+    background-color: #F2F2F2;
+    box-shadow: 0px 0px 12px rgba(74, 74, 74, 0.229);
+    border-radius: 9px;
+    padding: 4%;
+    margin-top: 8% ;
+}
+.buttonDelete {
+    background: #f36161;
+    border-radius: 7px;
+    width: 100%;
+    color: white;
+    font-size: small;
 }

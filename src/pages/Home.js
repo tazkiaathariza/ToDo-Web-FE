@@ -5,8 +5,36 @@ import Col from "react-bootstrap/Col";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import Menu from './Menu';
+import { useDispatch } from 'react-redux';
+import { addNewTaskAsync } from '../features/taskSlice';
+import { useNavigate } from "react-router-dom";
+import ToDoCard from './ToDoCard';
+
 
 function Home() {
+
+  const token = localStorage.getItem('token');
+  const direct = useNavigate();
+  if(token === null || token === false || token === ''){
+    direct("/")
+  }
+
+  const [value, setValue] = useState('');
+	const dispatch = useDispatch();
+  
+  const newTasks = (event) => {
+		event.preventDefault();
+		if (value) {
+			dispatch(
+				addNewTaskAsync({
+					title: value,
+          foreign_id: token
+				})
+			);
+		}
+    setValue('')
+	};
+
   
   return (
     <>
@@ -36,8 +64,22 @@ function Home() {
           </div>
 
           <div className="TodoList mt-4">
-            <p>Your Task :</p>
+          <p style={{backgroundColor:"white"}}><b>Your Task :</b></p>
+            <div className="myTask">
+              <p>Finish homework</p>
+              <button className="buttonDelete">
+                Delete if you finish the task
+              </button>
+            </div>
+            <div className="myTask">
+              <p>Attend a meeting</p>
+              <button className="buttonDelete">
+                Delete if you finish the task
+              </button>
+            </div>
           </div>
+
+          {/* <ToDoCard/> */}
         </Col>
       </Row>
     </Container>
