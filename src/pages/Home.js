@@ -16,7 +16,7 @@ function Home() {
   const token = localStorage.getItem('token');
   const direct = useNavigate();
   if(token === null || token === false || token === ''){
-    direct("/")
+    direct("/login")
   }
 
   const [value, setValue] = useState('');

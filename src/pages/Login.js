@@ -31,7 +31,7 @@ function Login() {
        }
      ); */
     alert("Log In Successful!");
-    direct("/home")
+    direct("/")
   };
 
   return (

@@ -18,8 +18,8 @@ function Menu() {
   /* Log Out */
   const logOut = () => {
     localStorage.clear();
-    alert("logout")
-    direct("/")
+    alert("logout");
+    direct("/login")
   };
 
   return (
